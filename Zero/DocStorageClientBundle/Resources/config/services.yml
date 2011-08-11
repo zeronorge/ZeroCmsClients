@@ -1,0 +1,7 @@
+parameters:
+#    zero_doc_storage_client.example.class: Zero\DocStorageClientBundle\Example
+
+services:
+#    zero_doc_storage_client.example:
+#        class: %zero_doc_storage_client.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
