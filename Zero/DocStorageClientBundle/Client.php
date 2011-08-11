@@ -66,17 +66,21 @@ class Client {
 
     $url = $this->apiUrl . "/add";
     $this->httpRequest->setUrl($url);
+    print $url . "\n";
     $this->httpRequest->setHeader("Content-Type: application/json");
+    $this->httpRequest->setMethod(\HTTP_Request2::METHOD_POST);
     $requestBody = json_encode($document);
     //var_dump($requestBody);
     $this->httpRequest->setBody( $requestBody);
     $this->response = $this->httpRequest->send();
     $this->code = $this->response->getStatus();
     if ($this->code == 200) {
-      $documentId = $this->response->getHeader("X-ZeroCMS-docId");
+      $documentId = $this->response->getHeader("X-ZeroCMS-ID");
+      print "Document added: $documentId\n";
       return $documentId;
     } 
-    throw new \Exception("Error in storing document " . $document['documentId'], $this->code);
+    throw new \Exception("Error in storing document " . $document['documentId']
+        . " http errorcode: " . $this->code, $this->code);
 
   }
 

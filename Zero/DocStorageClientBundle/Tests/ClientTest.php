@@ -38,7 +38,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
   public function testAddDocument() {
     $this->createResponse("{}", 200, 'application/json',
-        array("X-ZeroCMS-docId: 2-midgardCMS"));
+        array("X-ZeroCMS-ID: 2-midgardCMS"));
     $res = $this->client->add(array(
             "url" => "http://www.nu.no",
             'documentId' => "2",
