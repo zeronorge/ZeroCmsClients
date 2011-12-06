@@ -112,5 +112,14 @@
   </exec>
  </target>
 
- <target name="build" depends="clean,parallelTasks,phpunit,phpcb"/>
+ <target name="build-wordpress">
+ 
+    <zip destfile="${basedir}/build/wordpress.zip">
+         <zipfileset dir="modules/wordpress"/>
+         <zipfileset dir="Zero" prefix="zero-cms-client/ZeroCmsClient/Zero"/>
+    </zip>
+
+ </target>
+
+ <target name="build" depends="clean,parallelTasks,phpunit,phpcb,build-wordpress"/>
 </project>
