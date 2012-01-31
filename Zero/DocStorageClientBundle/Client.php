@@ -90,7 +90,7 @@ class Client
         }
 
         error_log("Error adding documet: : $documentId\n" . $this->code);
-        throw new Exception("Error in storing document " . $document['documentId']
+        throw new \Exception("Error in storing document " . $document['documentId']
                 . " http errorcode: " . $this->code, $this->code);
     }
 
